@@ -21,6 +21,7 @@
     }
 
     html {
+      position: relative;
       background-image: url("tree-branches.jpeg");
       background-size: cover;
       background-attachment: fixed;
@@ -52,7 +53,6 @@
     h3, h4 {
       text-align: left;
       margin-left: 2em;
-      /* color: #6b6662; */
       font-style: italic;
       font-weight: normal;
     }
@@ -103,7 +103,51 @@
       color: #ff2374;
     }
 
-    header img {
+    a[role=button] {
+      --btn-pad-v: 8px;
+      --btn-pad-h: 16px;
+      --btn-margin: 1em;
+      --btn-border: 2px;
+      --shade-color: #b3aaa2;
+      display: inline-block;
+      padding: var(--btn-pad-v) var(--btn-pad-h);
+      margin: var(--btn-margin);
+      margin-top: calc(var(--btn-margin) + var(--btn-border));
+      margin-left: calc(var(--btn-margin) + var(--btn-border));
+      background: white;
+      color: #333;
+      text-decoration: none;
+      border: var(--btn-border) solid var(--shade-color);
+      border-top: none;
+      border-left: none;
+      border-radius: 4px;
+    }
+
+    a[role=button]:hover {
+      cursor: pointer;
+    }
+
+    a[role=button]:active {
+      border: var(--btn-border) solid var(--shade-color);
+      border-bottom: none;
+      border-right: none;
+      margin-top: var(--btn-margin);
+      margin-left: var(--btn-margin);
+      margin-bottom: calc(var(--btn-margin) + 2px);
+      margin-right: calc(var(--btn-margin) + 2px);
+      padding-top: calc(var(--btn-pad-v) + 1px);
+      padding-bottom: calc(var(--btn-pad-v) - 1px);
+      padding-left: calc(var(--btn-pad-h) + 1px);
+      padding-right: calc(var(--btn-pad-h) - 1px);
+    }
+
+    .logo.inline {
+      display: inline;
+      width: 1.5em;
+      transform: translateY(.2em);
+    }
+
+    .biglogo {
       width: 280px;
       float: left;
       margin-top: -2em;
@@ -111,8 +155,27 @@
       margin-right: 1em;
     }
 
+    .choice {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .choice-parent {
+      container-name: choice;
+      container-type: inline-size;
+    }
+
+    @container choice (max-width: 450px) {
+      .choice {
+        flex-direction: column;
+      }
+    }
+
     @media (max-width: 800px) {
-      header img {
+      .biglogo {
         width: 200px;
         margin: 0 auto -2em;
         float: none;
@@ -122,10 +185,20 @@
 </head>
 <body>
   <header>
-    <img src="logo-bw.png" alt="Wilderness Game Jam Logo: A laptop overgrown with plants" />
+    <img class="biglogo" src="logo-bw.png" alt="Wilderness Game Jam Logo: A laptop overgrown with plants" />
     <h1>Wilderness Game Jam</h1>
     <p>An offgrid & offline camping game jam in nature with awesome outdoorsy folks. Make a game in a long weekend, using only what you bring and what you find. Hone your skills and get creative.</p>
-    <p><a href="https://discord.gg/HpRQnbaw">Join the community on Discord</a> for planning and announcements!</p>
+    <div class="choice-parent">
+      <div class="choice">
+        <a role="button" href="https://discord.gg/NrBYyZDK" target="_blank">
+          <img class="logo inline" src="discord-logo-blurple.svg"> Join the Discord Server
+        </a>
+        <span>Or</span>
+        <a role="button" href="https://buttondown.com/wilderness-jam">
+          Subscribe for Email Updates
+        </a>
+      </div>
+    </div>
   </header>
   <hr>
   <p><em>Specifics are still TBD by the community! Here’s what we know so far:</em></p>
