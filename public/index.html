@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wilderness Game Jam</title>
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Wilderness Game Jam">
+  <meta property="og:description" content="An offgrid & offline camping game jam in nature.">
+  <meta property="og:image" content="https://wilderjam.com/social-cover.png">
+  <meta property="og:url" content="https://wilderjam.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="wilderjam.com">
+  <meta property="twitter:url" content="https://wilderjam.com">
+  <meta name="twitter:title" content="Wilderness Game Jam">
+  <meta name="twitter:description" content="An offgrid & offline camping game jam in nature.">
+  <meta name="twitter:image" content="https://wilderjam.com/social-cover.png">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      position: relative;
+      background-image: url("tree-branches.jpeg");
+      background-size: cover;
+      background-attachment: fixed;
+      background-position-x: 0%;
+      background-position-y: 30%;
+      padding: 0 2rem;
+
+      --body-text: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", Arial, sans-serif;
+      font-family: var(--body-text);
+      color: #333;
+      line-height: 1.5;
+    }
+    main {
+      max-width: 960px;
+      background-color: #f0f0f0f0;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    }
+
+    h1, h2, h3, h4 {
+      font-family: "Georgia", serif;
+      color: #50402c;
+      text-align: center;
+      margin-top: 1em;
+      margin-bottom: 0;
+    }
+    h3, h4 {
+      text-align: left;
+      margin-left: 2em;
+      font-style: italic;
+      font-weight: normal;
+    }
+    .lowkey {
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      text-align: inherit;
+      color: inherit;
+      font-style: italic;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    p {
+      margin-top: 1em;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 1rem;
+      margin-left: 1rem;
+    }
+    dt {
+      font-weight: bold;
+    }
+    dd {
+      margin: 0;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px dotted #333;
+      margin-top: 1em;
+      clear: both;
+    }
+
+    a:link {
+      color: #0062ff;
+    }
+    a:visited {
+      color: #b700ff;
+    }
+    a:hover {
+      color: #ff4000;
+    }
+    a:active {
+      color: #ff2374;
+    }
+
+    a[role=button] {
+      --btn-pad-v: 8px;
+      --btn-pad-h: 16px;
+      --btn-margin: 1em;
+      --btn-border: 2px;
+      --shade-color: #b3aaa2;
+      display: inline-block;
+      padding: var(--btn-pad-v) var(--btn-pad-h);
+      margin: var(--btn-margin);
+      margin-top: calc(var(--btn-margin) + var(--btn-border));
+      margin-left: calc(var(--btn-margin) + var(--btn-border));
+      background: white;
+      color: #333;
+      text-decoration: none;
+      border: var(--btn-border) solid var(--shade-color);
+      border-top: none;
+      border-left: none;
+      border-radius: 4px;
+    }
+    a[role=button]:hover {
+      cursor: pointer;
+    }
+    a[role=button]:active {
+      border: var(--btn-border) solid var(--shade-color);
+      border-bottom: none;
+      border-right: none;
+      margin-top: var(--btn-margin);
+      margin-left: var(--btn-margin);
+      margin-bottom: calc(var(--btn-margin) + 2px);
+      margin-right: calc(var(--btn-margin) + 2px);
+      padding-top: calc(var(--btn-pad-v) + 1px);
+      padding-bottom: calc(var(--btn-pad-v) - 1px);
+      padding-left: calc(var(--btn-pad-h) + 1px);
+      padding-right: calc(var(--btn-pad-h) - 1px);
+    }
+
+    a.icon {
+      text-decoration: none;
+    }
+
+    .logo.inline {
+      display: inline;
+      width: 1.5em;
+      transform: translateY(.2em);
+    }
+
+    .header-image {
+      width: 280px;
+      float: left;
+      margin-top: -2em;
+      margin-bottom: 1em;
+      margin-right: 1em;
+    }
+
+    .callout {
+      container-name: callout;
+      container-type: inline-size;
+    }
+    .choice {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+    @container callout (max-width: 450px) {
+      .choice {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .header-image {
+        width: 200px;
+        margin: 0 auto -2em;
+        float: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img class="header-image" src="logo-bw.png" alt="Drawing of a laptop overgrown with plants" />
+      <h1>Wilderness Game Jam</h1>
+      <p>An offgrid & offline camping game jam in nature with awesome outdoorsy folks. Make a game in a long weekend, using only what you bring and what you find. Hone your skills and get creative.</p>
+      <div class="callout">
+        <div class="choice">
+          <a role="button" href="https://discord.gg/NrBYyZDK" target="_blank">
+            <img class="logo inline" src="discord-logo-blurple.svg"> Join the Discord Server
+          </a>
+          <span>Or</span>
+          <a role="button" href="https://buttondown.com/wilderness-jam">
+            Subscribe for Email Updates
+          </a>
+        </div>
+      </div>
+    </header>
+    <hr>
+    <h2 class="lowkey">Specifics are still TBD by the community! Here’s what we know so far:</h2>
+    <dl>
+      <dt>When</dt>
+      <dd>May 16-18.</dd>
+      <dt>Where</dt>
+      <dd>Somewhere within a few hours of the Bay Area.</dd>
+      <dt>Theme</dt>
+      <dd>To be voted upon, and announced shortly before the jam. <a href="https://docs.google.com/forms/d/e/1FAIpQLScHADy3FU4WXDy27d_b9748ceLBGorHZtXs_yY6RIH1m6YhEg/viewform?usp=dialog">Submit ideas here</a>.</dd>
+    </dl>
+    <h2 class="lowkey">If you’re interested in joining, please say hi at a chill park hangout and practice off-grid game dev methods:</h2>
+    <dl>
+      <dt>April 19, 12pm-4pm</dt>
+      <dd>Mission Dolores Park, by the central promenade.</dd>
+      <dt>April 20, 12pm-4pm</dt>
+      <dd>Golden Gate Park, by the South Blue Heron Lake Bridge.</dd>
+      <dt>May 3 & 4</dt>
+      <dd>Time and Location TBD.</dd>
+    </dl>
+    <p><strong>Wilderness Jam is organic and unsponsored.</strong></p>
+    <p><strong>Organized by:</strong> Aaron Suddjian (<a href="mailto:aaron@suddjian.com">aaron@suddjian.com</a>, Discord: dasuj)</p>
+    <p><em>I’m looking for co-organizers, especially women/nb/ts/poc/etc. Please contact me if you’re interested in helping to make Wilderness Jam happen!</em></p>
+    <h2>Features</h2>
+    <hr>
+    <ul>
+      <li>Trails, streams and rocks.</li>
+      <li>Tasty camp food.</li>
+      <li>All four elements.</li>
+      <li>Probably weed and drinks?</li>
+      <li><strong>Up to you. What we bring and share is what we have.</strong></li>
+    </ul>
+    <h2>Rules</h2>
+    <hr>
+    <ul>
+      <li>Be respectful of each other and your surroundings.</li>
+      <li>Introduce yourself at one of the meetups before the jam.</li>
+      <li>Don’t come if you are not prepared to be safe and responsible in an outdoor camping situation. (See <em>Preparation</em>)</li>
+      <li>Don’t work on your game until you are in the wilderness.</li>
+      <li>Be inclusive, don’t be an asshole or a creep.</li>
+      <li>No corporate nonsense or AI generated content.</li>
+      <li>In all likelihood we’ll be sharing public space with families and children, so don’t make a fuckin porn game.</li>
+    </ul>
+    <h2>Preparation</h2>
+    <hr>
+    <p>There will be opportunities for park meetups ahead of the jam. Come to the park to meet other participants, form teams, and practice offline game dev.</p>
+    <p>Sharing of transportation and resources, and group planning, are strongly encouraged! You're welcome to coordinate in Discord.</p>
+    <p>Assuming the location is a campground with defined sites: You can arrange for your own campsite, or you can join the group site. Please claim your space with the group in advance so we know how many people to reserve space for.</p>
+    <p>Have a plan for campsites, food (including dietary restrictions as a group), water, toiletries, shelter, warm clothing, first aid supplies.</p>
+    <h2>Offgrid Offline Game Dev</h2>
+    <hr>
+    <p>It’s up to you what kind of game to make and how you want to make it. Some folks bring a laptop to make a digital game. Some folks like to leave the computers at home, and make a game on paper or out of rocks and sticks.</p>
+    <p>If you’re using computers, you must plan ahead to successfully make a game. Here are some things to consider:</p>
+    <h3>Electricity</h3>
+    <p>I have used my hybrid car’s battery with a <a href="https://www.crutchfield.com/S-BFm2aBIiHJR/p_996PWD150S/PowerDrive-PWD150S.html">150W DC-AC converter</a> to charge my macbook air for 4 days of off-grid game dev (I set it to gas mode while driving to hold the charge). My car can probably manage 3 laptops for the duration of the jam, if they aren’t too power hungry.</p>
+    <p>Your power needs and supply may vary. A battery bank or solar array may be viable options as well. Loud generators are discouraged.</p>
+    <p>If you do use a car to charge your electronics, it might be a good idea to top up at the last available station.</p>
+    <p>Choice of tools can also impact electricity use! Some game engines seem to draw a lot of power just by being open.</p>
+    <h3>Tools</h3>
+    <p>Download documentation for programming languages, game engines, and code tools. Bring pen and paper. Download any assets you’ll want to have access to. Install your preferred offline tools for art and sound editing, and download those docs too if you can.</p>
+    <h3>Teaming Up</h3>
+    <p>If you’re working with a team, have a plan for sharing work and version management. This can be done with git or other VCS over a local-only network, with USB flash drives, airdrop, or other creative methods. Practice this ahead of time so you don’t get stuck!</p>
+    <p><a href="https://en.wikibooks.org/wiki/Git/Repository_on_a_USB_stick">Here's a guide on using a USB stick as a shared git repository</a>. It’s pretty simple if you use git on command line already!</p>
+  </main>
+</body>
+
+<script>
+  // function safeAnimate(fn) {
+  //   let requested = false;
+  //   function doTheThing() {
+  //     requested = false;
+  //     fn();
+  //   }
+  //   return () => {
+  //     if (requested) return;
+  //     requested = true;
+  //     requestAnimationFrame(doTheThing);
+  //   }
+  // }
+  
+  // const htmlEl = document.querySelector("html");
+
+  // document.addEventListener("scroll", safeAnimate(() => {
+  //   console.log("scrolling", htmlEl.style.backgroundPositionY);
+  //   htmlEl.style.backgroundPositionY = `calc(100% * ${window.scrollY / (document.body.scrollHeight)})`;
+  // })); 
+</script>
+</html>
